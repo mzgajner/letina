@@ -1,8 +1,10 @@
 import { useSyncExternalStore } from "preact/compat";
+import { useCallback } from "preact/hooks";
 import "./App.css";
 import MonthGrid from "./MonthGrid";
 import Verdict from "./Verdict";
 import YearSelector from "./YearSelector";
+import useSwipe from "./useSwipe";
 
 function getYearFromHash(): number {
   const hash = window.location.hash.slice(1);
@@ -19,6 +21,11 @@ function subscribeToHash(callback: () => void) {
 
 function App() {
   const year = useSyncExternalStore(subscribeToHash, getYearFromHash);
+
+  useSwipe(
+    useCallback(() => { window.location.hash = `#${year + 1}`; }, [year]),
+    useCallback(() => { window.location.hash = `#${year - 1}`; }, [year]),
+  );
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 sm:py-12">
       <YearSelector year={year} />
