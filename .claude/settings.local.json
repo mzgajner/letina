@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(bun run build:*)",
+      "Bash(npx vite-bundle-visualizer:*)",
+      "Bash(npx rollup-plugin-size:*)",
+      "Bash(node -e:*)",
+      "Bash(bun add:*)",
+      "Bash(bun remove:*)"
     ]
   }
 }

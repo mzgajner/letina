@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "preact/compat";
 import "./App.css";
 import MonthGrid from "./MonthGrid";
 import Verdict from "./Verdict";
