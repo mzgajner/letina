@@ -13,11 +13,10 @@ export default function Verdict({ year }: VerdictProps) {
 
   let verdict: string;
   if (workdayHolidays >= 11)
-    verdict = `${workdayHolidays} dela prostih dni, odlična letina 🥳!`;
+    verdict = `${workdayHolidays} dela prostih dni, odlična letina 🥳`;
   else if (workdayHolidays >= 9)
-    verdict = `${workdayHolidays} dela prostih dni, srednja letina 😐!`;
-  else
-    verdict = `${workdayHolidays} dela prostih dni, obupna letina 🤮!`;
+    verdict = `${workdayHolidays} dela prostih dni, srednja letina 😐`;
+  else verdict = `${workdayHolidays} dela prostih dni, obupna letina 🤮`;
 
   return (
     <p className="text-sm sm:text-base text-stone-500 text-center -mt-6 mb-8">

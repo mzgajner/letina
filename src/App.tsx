@@ -7,7 +7,9 @@ import YearSelector from "./YearSelector";
 function getYearFromHash(): number {
   const hash = window.location.hash.slice(1);
   const parsed = parseInt(hash, 10);
-  return parsed > 0 ? parsed : new Date().getFullYear();
+  if (parsed > 0) return parsed;
+  const now = new Date();
+  return now.getMonth() === 11 ? now.getFullYear() + 1 : now.getFullYear();
 }
 
 function subscribeToHash(callback: () => void) {
